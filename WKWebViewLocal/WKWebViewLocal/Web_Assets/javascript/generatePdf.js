@@ -1,10 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.33/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.33/vfs_fonts.js"></script>
-<script type="text/javascript" src="./javascript/generatePdf.js"></script>
-
-<button onclick="getPdf()">Télécharger le PDF</button>
-
-<script>
 function getPdf() {
     console.log('getPdf()')
     //var picture = AndroidInterface.getPicture()
@@ -87,13 +80,10 @@ function getPdf() {
     const pdfDoc = pdfMake.createPdf(dd);
 
     pdfDoc.getBase64((base64) => {
-            //AndroidInterface.saveBase64ToPdf(`${base64}`)
-            console.log(`${base64}`)
+            AndroidInterface.saveBase64ToPdf(`${base64}`)
+        return base64
         })
 
-        
-
-    
     /*pdfDoc.getBase64((base64) => {
        console.log(`data:application/pdf;base64,${base64}`)
        AndroidInterface.log(`data:application/pdf;base64,${base64}`)
@@ -103,7 +93,7 @@ function getPdf() {
            AndroidInterface.saveBufferToPdf(`${buffer}`)
         })*/
 
-}
-</script>
 
+
+}
 
