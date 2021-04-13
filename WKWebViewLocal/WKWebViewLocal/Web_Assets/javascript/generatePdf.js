@@ -1,6 +1,6 @@
 function getPdf() {
-    console.log('getPdf()')
     //var picture = AndroidInterface.getPicture()
+
 
   var dd = {
     pageSize: 'A4',
@@ -79,21 +79,8 @@ function getPdf() {
   }
     const pdfDoc = pdfMake.createPdf(dd);
 
-    pdfDoc.getBase64((base64) => {
-            AndroidInterface.saveBase64ToPdf(`${base64}`)
-        return base64
-        })
-
-    /*pdfDoc.getBase64((base64) => {
-       console.log(`data:application/pdf;base64,${base64}`)
-       AndroidInterface.log(`data:application/pdf;base64,${base64}`)
-    }*/
-
-    /*pdfDoc.getBuffer((buffer) => {
-           AndroidInterface.saveBufferToPdf(`${buffer}`)
-        })*/
-
-
-
+    pdfDoc.getBase64((data) => {
+        console.log('data:application/pdf;base64,' + data)
+    });
 }
 
